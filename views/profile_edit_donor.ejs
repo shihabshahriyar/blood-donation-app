@@ -1,0 +1,126 @@
+<% include partials/header.ejs %>
+    <div class="container form-only">
+    <h1>Edit your profile</h1>
+    <% if (message.length > 0) { %>
+        <div class="alert alert-danger">
+            <%= message %>
+        </div>
+     <% } %>
+    <br>
+        <form method="POST" action="/donors/profile/edit" enctype="multipart/form-data">
+            <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" class="form-control" name="email" value="<%= user.credentials.email %>">
+                        <small>This is the email through which you will receive all your donation requests.</small>
+                    </div>
+                    <div class="form-group">
+                        <label>First name</label>
+                        <input type="text" class="form-control" name="firstName" value="<%= user.firstName %>">
+                    </div>
+                    <div class="form-group">
+                        <label>Last name</label>
+                        <input type="text" class="form-control" name="lastName" value="<%= user.lastName %>">
+                    </div>
+                     <div class="form-group">
+                        <label>Mobile Number</label>
+                        <input type="text" class="form-control" name="mobileNumber" value="<%= user.mobileNumber %>">
+                    </div>
+                    <br>
+                    <label>Blood group</label>
+                    <% var bloodGroups = ['A+','A-','B+','B-','AB+','AB-','O+','O-']; %>
+                    <% for(var i = 0; i < bloodGroups.length; i++) { %>
+                        <% if(bloodGroups[i] === user.bloodGroup) { %>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="bloodGroup" id="bloodGroup<%=i%>" value="<%=bloodGroups[i]%>" checked>
+                                <label class="form-check-label" for="bloodGroup<%=i%>">
+                                    <%=bloodGroups[i]%>
+                                </label>
+                            </div>
+                        <% } else { %>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="bloodGroup" id="bloodGroup<%=i%>" value="<%=bloodGroups[i]%>">
+                            <label class="form-check-label" for="bloodGroup<%=i%>">
+                               <%=bloodGroups[i]%>
+                            </label>
+                        </div>
+                       <% } %>
+                    <% } %>
+                    <br>
+                    <label>Select gender</label>
+                    <div class="gender-select" style="border-left:5px solid rgb(239, 71, 111); padding-left:15px;">
+                    <% var genders = ['male','female'] %>
+                    <% for(var i = 0; i < genders.length; i++) { %>   
+                        <% if(genders[i] === user.gender) { %>                    
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gender" id="<%=genders[i]%>" value="<%=genders[i]%>" checked>
+                                <label class="form-check-label" for="<%=genders[i]%>">
+                                    <span style="text-transform:capitalize"><%= genders[i] %></span>
+                                </label>
+                            </div>
+                        <% } else { %>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gender" id="<%=genders[i]%>" value="<%=genders[i]%>">
+                                <label class="form-check-label" for="<%=genders[i]%>">
+                                    <span style="text-transform:capitalize"><%= genders[i] %></span>
+                                </label>
+                            </div>
+                        <% } %>
+                    <% } %>
+                    </div>
+                    <br>
+                    <label>Date of birth</label>
+                    <div class="date-of-birth-input form-inline">
+                            <select class="form-control" name="DOBMonth" id="DOBMonth">
+                                    <option> - Month - </option>
+                                    <% var months = ["January", "February","March","April","May","June","July","August","September","October","November","December"]; %>
+                                    <% for(var i = 0; i < months.length; i++) { %>
+                                        <% if(i === user.dateOfBirth.getMonth()) { %>
+                                            <option value="<%=months[i]%>" selected><%=months[i]%></option>
+                                        <% } else { %>
+                                            <option value="<%=months[i]%>"><%=months[i]%></option>
+                                        <% } %>
+                                    <% } %>
+                                </select>                                
+                                <select class="form-control select-dropdown" name="DOBDay" id="DOBDay">
+                                    <option> - Day - </option>
+                                    <% for(var i = 0; i <= 31; i++) { %>
+                                        <% if(i === user.dateOfBirth.getDate()) { %>
+                                            <option value="<%=i%>" selected><%=i%></option>
+                                        <% } else { %>
+                                            <option value="<%=i%>"><%=i%></option>
+                                        <% } %>
+                                    <% } %>
+                                </select>                             
+                                <select class="form-control select-dropdown" name="DOBYear" id="DOBYear">
+                                    <option> - Year - </option>
+                                    <% for(var i = currentYear; i > currentYear - 90; i--) { %>
+                                        <% if(i === user.dateOfBirth.getFullYear()) { %>
+                                            <option value="<%=i%>" selected><%=i%></option>
+                                        <% } else { %>
+                                            <option value="<%=i%>"><%=i%></option>
+                                        <% } %>
+                                    <% } %>                            
+                                </select>
+                    </div>
+                    <br>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend d-none d-lg-block">
+                          <span class="input-group-text">Choose Profile Picture</span>
+                        </div>
+                        <div class="custom-file">
+                          <input type="file" class="custom-file-input" id="image" name="image" accept="image/*" onchange="setfilename(this.value);">
+                          <label class="custom-file-label file-label" for="image" >Choose profile picture</label>
+                        </div>
+                      </div>
+                    <div class="form-group">
+                        <label>Current Password</label>
+                        <input type="password" class="form-control" name="currentPassword">
+                    </div>
+                    <div class="form-group">
+                        <label>Current/New Password</label>
+                        <input type="password" class="form-control" name="newPassword">
+                    </div>
+                    <button type="submit" class="btn btn-warning btn-lg userid-button">Update</button>
+        </form>
+    </div>
+<% include partials/footer.ejs %>

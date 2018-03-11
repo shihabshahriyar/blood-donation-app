@@ -1,0 +1,222 @@
+<% include partials/header.ejs %>
+    <header>
+        <div class="row landing-header">
+            <div class="col-lg-7 col-sm-12">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="height:100%; width:100%;">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="w-100 h-100" src="http://wallpapers-hd-wide.com/wp-content/uploads/2016/02/happy_people_jump_happiness_sunset_1920x1080.jpg" alt="First slide" style="filter: blur(1px) brightness(0.5);">
+                            <div class="carousel-caption">
+                                    <h3>Leave your mark.</h3>
+                                    <p>Help to make this world a better place.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img class="w-100 h-100" src="https://s-media-cache-ak0.pinimg.com/originals/c3/55/22/c35522859a15ff3ec4fb530afc8aaea7.jpg"
+                                alt="Second slide" style="filter: blur(1px) brightness(0.5);">
+                                <div class="carousel-caption">
+                                    <h3>Become the source of joy.</h3>
+                                    <p>Your generosity can save lives, and the 21st century makes this easy than ever.</p>
+                                </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img class="w-100 h-100" src="https://www.xtremecoin.com/assests/img/1920x1080/14.jpg"
+                                alt="Third slide" style="filter: blur(1px) brightness(0.5);">
+                                <div class="carousel-caption">
+                                    <h3>Join the revolution.</h3>
+                                    <p>Make a difference, one life at a time.</p>
+                                </div>
+                        </div>
+                    </div>
+                    <span class="d-none d-lg-block">
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev" style="margin;">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    <span>
+                </div>
+            </div>
+            <div class="col-lg-5 col-sm-12">
+                <div class="landing-form">
+                    <form method="POST" action="/donors/search">
+                        <h1>Search for a blood donor</h1>
+                        <br>
+                        <h3>Select blood group</h3>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="bloodGroup" id="bloodGroup1" value="A+" checked="true">
+                            <label class="form-check-label" for="bloodGroup1">
+                                A+
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="bloodGroup" id="bloodGroup2" value="A-">
+                            <label class="form-check-label" for="bloodGroup2">
+                                A-
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="bloodGroup" id="bloodGroup3" value="B+">
+                            <label class="form-check-label" for="bloodGroup3">
+                                B+
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="bloodGroup" id="bloodGroup4" value="B-">
+                            <label class="form-check-label" for="bloodGroup4">
+                                B-
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="bloodGroup" id="bloodGroup5" value="AB+">
+                            <label class="form-check-label" for="bloodGroup5">
+                                AB+
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="bloodGroup" id="bloodGroup6" value="AB-">
+                            <label class="form-check-label" for="bloodGroup6">
+                                AB-
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="bloodGroup" id="bloodGroup7" value="O+">
+                            <label class="form-check-label" for="bloodGroup7">
+                                O+
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="bloodGroup" id="bloodGroup8" value="O-">
+                            <label class="form-check-label" for="bloodGroup8">
+                                O-
+                            </label>
+                        </div>
+                        <br>
+                        <h3>Select gender</h3>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gender" id="male" value="male" checked="true">
+                            <label class="form-check-label" for="male">
+                                Male
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+                            <label class="form-check-label" for="female">
+                                Female
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <div class="row">
+            <div class="col-sm-12 col-md-4">
+                <div class="landing-feature">
+                    <i class="fas fa-sun" style="font-size:4.0em; display:block; margin:auto; color:#E85B2C;"></i>
+                    <br>
+                    <p>Blood searching made easy</p>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <div class="landing-feature">
+                    <i class="fas fa-ambulance" style="font-size:4.0em; display:block; margin:auto; color:#E85B2C;"></i>
+                    <br>
+                    <p>Donors available for contact 24/7</p>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <div class="landing-feature">
+                    <i class="fas fa-handshake" style="font-size:4.0em; display:block; margin:auto; color:#E85B2C;"></i>
+                    <br>
+                    <p>Reliable donors</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="landing-app-promotion">
+            <h1>Join the revolution.</h1>
+            <div class="row">
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div style="margin-top:50px;">
+                        <h3 style="text-align:end;">We flipped the system.</h3>
+                        <p style="text-align:end;">Place beacons on your map. Local donors can see you beacon and choose to accept you 
+                        your appointment. Every donor nearby can see your beacon, so that you'll be able to contact donors in no time.</p>
+                    </div>
+                    <div style="margin-top:235px;">
+                        <h3 style="text-align:end;">Decide who's made the biggest difference.</h3>
+                        <p style="text-align:end;">Review donors based on their generosity and decide who had the biggest impact on your life.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <img src="http://www.stickpng.com/assets/images/585fd1b1cb11b227491c35d4.png" alt="">
+                </div>
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div style="margin-top:50px;">
+                        <h3>Make a difference.</h3>
+                        <p>Become a donor and manage appointments, donate blood and make this world a better place, one life at a time.</p>
+                    </div>
+                    <div style="margin-top:250px;">
+                        <h3>Donors 24/7</h3>
+                        <p>Easily look through donors and DM them with our state of the art chat system, or choose to take the conventional path and send them an email. 
+                        We provide you the freedom</p>
+                    </div>
+                </div>
+                <div class="col-xs-12 d-md-none">
+                    <div style="margin-top:50px; padding:15px;">
+                        <h3 style="text-align:center;">We flipped the system</h3>
+                        <p style="text-align:center;">Place beacons on your map. Local donors can see you beacon and choose to accept you 
+                        your appointment. Every donor nearby can see your beacon, so that you'll be able to contact donors in no time.</p>
+                    </div>
+                </div>
+                <div class="col-xs-12 d-md-none">
+                    <div style="margin-top:50px; padding:15px;">
+                        <h3 style="text-align:center;">Make a difference.</h3>
+                        <p style="text-align:center;">Become a donor and manage appointments, donate blood and make this world a better place, one life at a time.</p>
+                    </div>
+                </div>
+                <div class="col-xs-12 d-md-none">
+                    <div style="margin-top:50px; padding:15px;">
+                        <h3 style="text-align:center;">Decide who's made the biggest difference.</h3>
+                        <p style="text-align:center;">Review donors based on their generosity and decide who had the biggest impact on your life..</p>
+                    </div>
+                </div>
+                <div class="col-xs-12 d-md-none">
+                    <div style="margin-top:50px; padding:15px;">
+                        <h3 style="text-align:center;">Donors 24/7.</h3>
+                        <p style="text-align:center;">Easily look through donors and DM them with our state of the art chat system, or choose to take the conventional path and send them an email. 
+                        We provide you the freedom</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="landing-app-download">
+            <div style="text-align:center;">
+                <h2 style="display:inline">Download the app</h2>
+                <a href="#">
+                    <img src="https://www.cybrary.it/wp-content/themes/cybrary/img/appbutton.png" style="width:150px;">
+                </a>
+                <a href="#">
+                    <img src="https://info.shapeshift.io/sites/default/files/Indiewallet%20Google%20Play%20button.png" style="width:150px;">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <% include partials/footer.ejs %>

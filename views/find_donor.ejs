@@ -1,0 +1,134 @@
+<% include partials/header.ejs %>
+<div id="search-form">
+        <section>
+                <div class="container">
+                    <form method="POST" action="/donors/search">
+                        <div class="d-none d-lg-block">
+                                <h1 style="display:inline-block;">Search for a blood donor</h1>
+                                <span onclick="toggleHeader()"><i class="fas fa-arrow-down float-right toggle-close toggle-close-web" ></i></span>
+                        </div>
+                        <div class="d-md-none">
+                            <h1 style="display:inline-block;">Search</h1>
+                            <span onclick="toggleHeader()"><i class="fas fa-arrow-down float-right toggle-close toggle-close-mobile"></i></span>
+                        </div>
+                        <br>
+                        <h3>Select blood group</h3>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="bloodGroup" id="bloodGroup1" value="A+" checked="true">
+                            <label class="form-check-label" for="bloodGroup1">
+                                A+
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="bloodGroup" id="bloodGroup2" value="A-">
+                            <label class="form-check-label" for="bloodGroup2">
+                                A-
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="bloodGroup" id="bloodGroup3" value="B+">
+                            <label class="form-check-label" for="bloodGroup3">
+                                B+
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="bloodGroup" id="bloodGroup4" value="B-">
+                            <label class="form-check-label" for="bloodGroup4">
+                                B-
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="bloodGroup" id="bloodGroup5" value="AB+">
+                            <label class="form-check-label" for="bloodGroup5">
+                                AB+
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="bloodGroup" id="bloodGroup6" value="AB-">
+                            <label class="form-check-label" for="bloodGroup6">
+                                AB-
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="bloodGroup" id="bloodGroup7" value="O+">
+                            <label class="form-check-label" for="bloodGroup7">
+                                O+
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="bloodGroup" id="bloodGroup8" value="O-">
+                            <label class="form-check-label" for="bloodGroup8">
+                                O-
+                            </label>
+                        </div>
+                        <br>
+                        <h3>Select gender</h3>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gender" id="male" value="male" checked="true">
+                            <label class="form-check-label" for="male">
+                                Male
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+                            <label class="form-check-label" for="female">
+                                Female
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </section>
+</div>
+        <br>
+    <div class="container">
+        <section> 
+            <div class="search-section" >
+                <% if(typeof users != "undefined") { %>
+                    <% if(users.length > 0) { %>
+                        <% for(var i = 0; i < users.length; i++) { %>
+                        <div class="lib-panel">
+                            <div class="row box-shadow">
+                                <div class="col-md-6">
+                                    <img class="lib-img-show" src="<%= users[i].profilePicturePath %>">
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="lib-row lib-header">
+                                        <%= users[i].firstName + " " + users[i].lastName %>
+                                            <div class="lib-header-seperator"></div>
+                                    </div>
+                                    <div class="lib-row lib-desc">
+                                        <p>
+                                            <strong>Email</strong> :
+                                            <%= users[i].credentials.email %>
+                                        </p>
+                                        <p>
+                                            <strong>Blood group</strong> :
+                                            <%= users[i].bloodGroup %>
+                                        </p>
+                                        <p>
+                                            <strong>Date of birth</strong> :
+                                            <%= users[i].dateOfBirth.toDateString() %>
+                                        </p>
+                                        <p>
+                                            <strong>Mobile number</strong> :
+                                            <%= users[i].mobileNumber %>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <% } %>
+                    <% } else { %>
+                        <h1>No suitable donors found</h1>
+                        <p>No donors matched your requirements. Check back again later</p>
+                    <% } %>
+                <% } else { %>
+                    <h1>Search for donors</h1>
+                    <p>Fill the form to find suitable donors</p>
+                 <% } %>
+            </div>
+        </section>
+    </div>
+    <br>
+    <% include partials/footer.ejs %>

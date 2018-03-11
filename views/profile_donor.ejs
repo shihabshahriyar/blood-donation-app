@@ -1,0 +1,40 @@
+<% include partials/header.ejs %>
+<div class="container" style="padding:50px;">
+    <h1>Your profile</h1>
+    <br>
+    <div class="lib-panel">
+        <div class="row box-shadow">
+            <div class="col-md-6">
+                <img class="lib-img-show" src="<%= user.profilePicturePath %>">
+            </div>
+            <div class="col-md-6">
+                <div class="lib-row lib-header">
+                    <%= user.firstName + " " + user.lastName %>
+                        <div class="lib-header-seperator"></div>
+                </div>
+                <div class="lib-row lib-desc">
+                    <p>
+                        <strong>Email</strong> :
+                        <%= user.credentials.email %>
+                    </p>
+                    <p>
+                        <strong>Blood group</strong> :
+                        <%= user.bloodGroup %>
+                    </p>
+                    <p>
+                        <strong>Date of birth</strong> :
+                        <%= user.dateOfBirth.toDateString() %>
+                    </p>
+                    <p>
+                        <strong>Mobile number</strong> :
+                        <%= user.mobileNumber %>
+                    </p>
+                    <form action="/donors/profile/edit">
+                        <input type="submit" class="btn btn-primary useredit-button" value="Edit">
+                    </form>  
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<% include partials/footer.ejs %>
